@@ -3,25 +3,34 @@
 pkgname=sing-box
 pkgver=1.1_beta10
 _pkgver=${pkgver//_/-}
-pkgrel=1
+pkgrel=2
 pkgdesc='The universal proxy platform.'
 arch=('x86_64')
 url='https://sing-box.sagernet.org/'
 license=('GPL3')
-source=("https://github.com/SagerNet/sing-box/releases/download/v${_pkgver}/sing-box-${_pkgver}-linux-amd64v3.tar.gz"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/config.json"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box.service"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box@.service")
-sha256sums=('f50658675fec45200110adfed9a5cc78151561f1ff753850d1e93a98436942b0'
-            '395f07a950decb20ba00e161d3a07173bde1b31df0a4f8ee44de735b66e6a0c4'
-            '1d261002eeb521e0c09a254d4ad1ee65df261e7cff04160d5f7dc0d03a345f0b'
-            '5b18a3d78ce4392bcc34cc76a15cb39b60a1f50f3130a29977d62605b22f227a')
+makedepends=('go')
+source=("${pkgname}-${_pkgver}.tar.gz::https://github.com/SagerNet/sing-box/archive/v${_pkgver}.tar.gz")
+sha256sums=('f6230c395e63a2e9919230df2f721290ba1380dfc0a9a2ae12c78f961bcd2916')
 backup=('etc/sing-box/config.json')
 
+_tags=with_quic,with_grpc,with_wireguard,with_shadowsocksr,with_ech,with_utls,with_clash_api,with_gvisor,with_lwip
+build(){
+    cd ${pkgname}-${_pkgver}
+
+    export GOAMD64=v3 GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
+    export CGO_LDFLAGS="${LDFLAGS}"
+    export CGO_CFLAGS="${CFLAGS}"
+    export CGO_CPPFLAGS="${CPPFLAGS}"
+
+    go build -tags "$_tags" ./cmd/sing-box
+}
+
 package() {
-    install -Dm755 "$pkgname-${_pkgver}-linux-amd64v3/${pkgname}" -t "${pkgdir}/usr/bin"
-    install -Dm644 "$pkgname-${_pkgver}-linux-amd64v3/LICENSE"    -t "${pkgdir}/usr/share/licenses/${pkgname}"
-    install -Dm644 "config.json"                                  -t "${pkgdir}/etc/${pkgname}"
-    install -Dm644 "sing-box.service"                             -t "${pkgdir}/usr/lib/systemd/system"
-    install -Dm644 "sing-box@.service"                            -t "${pkgdir}/usr/lib/systemd/system"
+    cd ${pkgname}-${_pkgver}
+
+    install -Dm755 "${pkgname}"                         -t "${pkgdir}/usr/bin"
+    install -Dm644 "LICENSE"                            -t "${pkgdir}/usr/share/licenses/${pkgname}"
+    install -Dm644 "release/config/config.json"         -t "${pkgdir}/etc/${pkgname}"
+    install -Dm644 "release/config/sing-box.service"    -t "${pkgdir}/usr/lib/systemd/system"
+    install -Dm644 "release/config/sing-box@.service"   -t "${pkgdir}/usr/lib/systemd/system"
 }
