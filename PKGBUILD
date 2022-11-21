@@ -1,18 +1,18 @@
 # Maintainer: everyx <lunt.luo#gmail.com>
 
 pkgname=sing-box
-pkgver=1.1_beta16
+pkgver=1.1_beta17
 _pkgver=${pkgver//_/-}
 pkgrel=1
 pkgdesc='The universal proxy platform.'
 arch=('x86_64')
 url='https://sing-box.sagernet.org/'
 license=('GPL3')
-source=("https://github.com/SagerNet/sing-box/releases/download/v${_pkgver}/sing-box-${_pkgver}-linux-amd64v3.tar.gz"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/config.json"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box.service"
-        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box@.service")
-sha256sums=('61aad224bb9cc5580755512a840bcf8d22aaf76089df75eb31ff58dae37e85a7'
+source=("https://github.com/SagerNet/sing-box/releases/download/${_pkgver}/sing-box-${_pkgver}-linux-amd64v3.tar.gz"
+        "https://github.com/SagerNet/sing-box/raw/${_pkgver}/release/config/config.json"
+        "https://github.com/SagerNet/sing-box/raw/${_pkgver}/release/config/sing-box.service"
+        "https://github.com/SagerNet/sing-box/raw/${_pkgver}/release/config/sing-box@.service")
+sha256sums=('16cb27b83e62e1b5128342871e54355c1a7f4216e55a5ba5d1b6a0cfcabcfde4'
             '395f07a950decb20ba00e161d3a07173bde1b31df0a4f8ee44de735b66e6a0c4'
             '1d261002eeb521e0c09a254d4ad1ee65df261e7cff04160d5f7dc0d03a345f0b'
             '5b18a3d78ce4392bcc34cc76a15cb39b60a1f50f3130a29977d62605b22f227a')
