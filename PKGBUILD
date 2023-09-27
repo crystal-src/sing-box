@@ -18,10 +18,22 @@ sha256sums=('8c6af17587c65958fd13733a40572d254f259313c8b26a81be643179d56c3b4a'
             '72265c3a80f52c3fe3247da2fe73bffb5b117d7b50ab801f63874dc6eb86161b')
 backup=('etc/sing-box/config.json')
 
+build() {
+    cd "$pkgname-${_pkgver}-linux-amd64v3/"
+    mkdir -p ../completions
+    ./sing-box completion bash > ../completions/bash
+    ./sing-box completion fish > ../completions/fish
+    ./sing-box completion zsh  > ../completions/zsh
+}
+
 package() {
     install -Dm755 "$pkgname-${_pkgver}-linux-amd64v3/${pkgname}" -t "${pkgdir}/usr/bin"
     install -Dm644 "$pkgname-${_pkgver}-linux-amd64v3/LICENSE"    -t "${pkgdir}/usr/share/licenses/${pkgname}"
     install -Dm644 "config.json"                                  -t "${pkgdir}/etc/${pkgname}"
     install -Dm644 "sing-box.service"                             -t "${pkgdir}/usr/lib/systemd/system"
     install -Dm644 "sing-box@.service"                            -t "${pkgdir}/usr/lib/systemd/system"
+
+    install -Dm644 completions/bash "${pkgdir}/usr/share/bash-completion/completions/${pkgname}.bash"
+    install -Dm644 completions/fish "${pkgdir}/usr/share/fish/vendor_completions.d/${pkgname}.fish"
+    install -Dm644 completions/zsh  "${pkgdir}/usr/share/zsh/site-functions/_${pkgname}"
 }
