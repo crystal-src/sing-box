@@ -1,7 +1,7 @@
 # Maintainer: everyx <lunt.luo#gmail.com>
 
 pkgname=sing-box
-pkgver=1.7.0_beta.2
+pkgver=1.7.0_rc.1
 _pkgver=${pkgver//_/-}
 pkgrel=1
 pkgdesc='The universal proxy platform.'
@@ -12,7 +12,7 @@ source=("https://github.com/SagerNet/sing-box/releases/download/v${_pkgver}/sing
         "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/config.json"
         "sing-box.service"
         "sing-box@.service")
-sha256sums=('afb99ba4fb3514a80e4f3bb8a686a6c7445a940ad058a458829ffa9feb2b773f'
+sha256sums=('8c6af17587c65958fd13733a40572d254f259313c8b26a81be643179d56c3b4a'
             '59aac6f3459d3a48c496ab3055d9a9c261179dd8ad73b54a4dccb9ebf3ae9a5b'
             '242e499ffb783111ff49e290a8ccbd34ff20786a0c90915625458b74e35a79c5'
             '72265c3a80f52c3fe3247da2fe73bffb5b117d7b50ab801f63874dc6eb86161b')
