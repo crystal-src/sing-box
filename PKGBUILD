@@ -1,7 +1,7 @@
 # Maintainer: everyx <lunt.luo#gmail.com>
 
 pkgname=sing-box
-pkgver=1.7.0_rc.1
+pkgver=1.7.0
 _pkgver=${pkgver//_/-}
 pkgrel=1
 pkgdesc='The universal proxy platform.'
@@ -10,12 +10,12 @@ url='https://sing-box.sagernet.org/'
 license=('GPL3')
 source=("https://github.com/SagerNet/sing-box/releases/download/v${_pkgver}/sing-box-${_pkgver}-linux-amd64v3.tar.gz"
         "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/config.json"
-        "sing-box.service"
-        "sing-box@.service")
-sha256sums=('8c6af17587c65958fd13733a40572d254f259313c8b26a81be643179d56c3b4a'
+        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box.service"
+        "https://github.com/SagerNet/sing-box/raw/v${_pkgver}/release/config/sing-box@.service")
+sha256sums=('5894a8460aec2051a9f62fe71c726ece5f59c1accf7726adcd73690851cb0d1f'
             '59aac6f3459d3a48c496ab3055d9a9c261179dd8ad73b54a4dccb9ebf3ae9a5b'
-            '242e499ffb783111ff49e290a8ccbd34ff20786a0c90915625458b74e35a79c5'
-            '72265c3a80f52c3fe3247da2fe73bffb5b117d7b50ab801f63874dc6eb86161b')
+            '56cb2758d34e9d317537e29e424f883e1ed90022d2d764cca6ea457edd3f1042'
+            '3987de625e0c70099ffd227d7e14c2eccb7245d7f0a8546f075f7ca686560223')
 backup=('etc/sing-box/config.json')
 
 build() {

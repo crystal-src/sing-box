@@ -1,18 +1,18 @@
 pkgbase = sing-box
 	pkgdesc = The universal proxy platform.
-	pkgver = 1.7.0_rc.1
+	pkgver = 1.7.0
 	pkgrel = 1
 	url = https://sing-box.sagernet.org/
 	arch = x86_64
 	license = GPL3
 	backup = etc/sing-box/config.json
-	source = https://github.com/SagerNet/sing-box/releases/download/v1.7.0-rc.1/sing-box-1.7.0-rc.1-linux-amd64v3.tar.gz
-	source = https://github.com/SagerNet/sing-box/raw/v1.7.0-rc.1/release/config/config.json
-	source = sing-box.service
-	source = sing-box@.service
-	sha256sums = 8c6af17587c65958fd13733a40572d254f259313c8b26a81be643179d56c3b4a
+	source = https://github.com/SagerNet/sing-box/releases/download/v1.7.0/sing-box-1.7.0-linux-amd64v3.tar.gz
+	source = https://github.com/SagerNet/sing-box/raw/v1.7.0/release/config/config.json
+	source = https://github.com/SagerNet/sing-box/raw/v1.7.0/release/config/sing-box.service
+	source = https://github.com/SagerNet/sing-box/raw/v1.7.0/release/config/sing-box@.service
+	sha256sums = 5894a8460aec2051a9f62fe71c726ece5f59c1accf7726adcd73690851cb0d1f
 	sha256sums = 59aac6f3459d3a48c496ab3055d9a9c261179dd8ad73b54a4dccb9ebf3ae9a5b
-	sha256sums = 242e499ffb783111ff49e290a8ccbd34ff20786a0c90915625458b74e35a79c5
-	sha256sums = 72265c3a80f52c3fe3247da2fe73bffb5b117d7b50ab801f63874dc6eb86161b
+	sha256sums = 56cb2758d34e9d317537e29e424f883e1ed90022d2d764cca6ea457edd3f1042
+	sha256sums = 3987de625e0c70099ffd227d7e14c2eccb7245d7f0a8546f075f7ca686560223
 
 pkgname = sing-box
